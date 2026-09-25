@@ -13,15 +13,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Gak tambah back button di splash (awal)
+        // Hide ActionBar biar full screen seperti slide
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Welcome");
+            getSupportActionBar().hide();
         }
 
         Button btnStart = findViewById(R.id.btnStart);
         btnStart.setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();  // Tutup splash setelah start
         });
     }
 }
